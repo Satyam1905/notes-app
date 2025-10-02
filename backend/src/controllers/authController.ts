@@ -73,8 +73,8 @@ export const verifySignupOtp = async (req: Request, res: Response) => {
     if(!isMatch) {
         return res.status(400).json({ message: 'Invalid OTP' });
     }
-    user.otp = undefined;
-    user.otpExpires = undefined;
+    user.otp = null;
+    user.otpExpires = null;
     await user.save();
 
     res.status(201).json({
@@ -130,8 +130,8 @@ export const verifySigninOtp = async (req: Request, res: Response) => {
         return res.status(400).json({ message: 'Invalid OTP' });
     }
 
-    user.otp = undefined;
-    user.otpExpires = undefined;
+    user.otp = null;
+    user.otpExpires = null;
     await user.save();
 
     res.json({
